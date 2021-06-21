@@ -1,0 +1,31 @@
+nav {
+    font: inherit;
+    background-color: transparent;
+
+}
+
+body, html {
+    height: 100%;
+}
+
+.toplogo {
+    padding: 10px 10px 10px 10px;
+}
+
+.landing {
+
+    background-image: url(images/gallery-image-1.jpg);
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+nav > ul {
+    display: inline-block;
+    list-style-type: none;
+    justify-content: space-between;
+    display: flex;
+    
+    
+}
