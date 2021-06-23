@@ -1,0 +1,92 @@
+* {
+    box-sizing: border-box;
+  }
+  
+
+  
+  body {
+    width: 50%;
+    margin: 0 auto;
+  }
+  
+  ul.movies-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 1rem;
+    align-items: flex-end;
+  }
+  
+  .movies {
+    padding: 10px;
+    border-radius: 10px;
+    background: black;
+    flex-basis: 15%;
+    flex-grow: 1;
+    flex-shrink: 0;
+  }
+  .albums-container {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 60%;
+  }
+  
+  .album {
+    flex-basis: 30%;
+  }
+  
+  picture img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .technologies {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    padding: 0;
+  }
+  
+  .technologies > li {
+    display: block;
+    background: white;
+    color: #230323;
+    padding: 0.5rem;
+  }
+  
+  .techonology:hover {
+    background: gold;
+  }
+  
+  .technology-section {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 5%;
+    border-radius: 10px;
+    padding: 10px;
+    border: 4px dashed yellow;
+  }
+  
+  ul.countries-container {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    padding: 0;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: space-around;
+    height: 600px;
+  }
+  .country > li {
+    width: 50%;
+    flex-basis: 20%;
+    padding: 1rem;
+  }
+  

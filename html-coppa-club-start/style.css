@@ -1,15 +1,19 @@
 nav {
     font: inherit;
     background-color: transparent;
+    color: white;
 
 }
 
 body, html {
     height: 100%;
+    
+ 
 }
 
 .toplogo {
     padding: 10px 10px 10px 10px;
+    text-align: left;
 }
 
 .landing {
@@ -19,6 +23,7 @@ body, html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    
 }
 
 nav > ul {
@@ -26,6 +31,75 @@ nav > ul {
     list-style-type: none;
     justify-content: space-between;
     display: flex;
+    padding: 10px 10px 10px 10px;
+}
+
+nav > li {
+    color: white;
+
+}
+
+#about {
+    background-color: #496576;
+    padding: 10px 10px 10px 10px;
+    color: white;
+    text-align: center;
+}
+
+#gallery  {
+    
+    object-fit: fill;
+
+
+}
+
+#menus {
+    background-color: white;
+    color: #496576;
+    text-align: center;
+    padding: 10px 10px 10px 10px;
+}
+
+
+
+#menus > h2 {
+
+}
+
+#newsletter {
+    background-color: #496576;
+    padding: 10px 10px 10px 20px;
+    color: white;
+    text-align: center;
+}
+
+#booking {
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+}
+
+#location img {
+    float: left;
+    
+}
+
+#location {
+    background-color: #496576;
+    padding: 10px 10px 10px 10px;
+    color: white;
+    text-align: center;
+    contain: content;
     
     
+}
+
+#join {
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#footer{
+    margin-bottom: 20px;
+    text-align: center;
 }
