@@ -84,5 +84,6 @@ const suspects = [
 const thief = suspects.filter(function(culprit){
   return culprit.bloodType === `A` && culprit.height <= 180 && culprit.height >= 155 && culprit.shoeSize === 12
 })
+console.log("The thief is...")
 console.log(thief)
 

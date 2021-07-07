@@ -13,34 +13,52 @@ function demo(array) {
 const numbers = [1, 2, 3, 4, 5]
 
 function oddsAndEvens(array) {
-    const odds = array.map(number) => number % 2 == 0)
-    return odds
-  
-console.log(oddsAndEvens())
+  for (i = 0; i < array.length; i++) {
+    if ((array[i] % 2) != 1){
+      return 'even'
+    }
+    else {
+      return 'odd'
+    }
+  }
+}
 
 // ? write a function that takes an array of words as an argument and returns only words starting with an uppercase 'B'.
 // ? eg: beginsWithB(['Bell', 'Ball']) => ['Bell', 'Ball']; beginsWithB(['Bell', 'sandwich']) => ['Bell'];
-function beginsWithB(array) {}
+function beginsWithB(array) {
+  return array.filter(word => word[0] === 'B')
+}
 
 // ? write a function that multiplies each number in an array by 10 and returns the values in a new array. Make any negative numbers positive.
 // ? eg: multiplyBy10([10, 3]) => [100, 30]; multiplyBy10([-2, 0, 10]) => [20, 0, 100];
-function multiplyBy10(array) {}
+function multiplyBy10(array) {
+  return array.map(number => number * 10)
+}
 
-// ? write a function that takes a value and an array and returns the index of the given value in the array. If the value is not in the array it should return 'Not Found'.
+// ? write a function that takes a value and an array and returns the index of the given value in the array. 
+// If the value is not in the array it should return 'Not Found'.
 // ? eg: findIndex(1, [10, 3, 1]) => 2; findIndex('George', ['Mike', 'Rane', 'Alex']) => 'Not Found';
-function findIndex(val, array) {}
+function findIndex(val, array) {
+}
 
 // ? write a function that checks whether ANY of the numbers in the array are can be divided by 5. It should return true or false.
 // ? eg: divisibleBy5([8, 12, 15]) => true; divisibleBy5([11, 9, 34]) => false;
-function divisibleBy5(array) {}
+function divisibleBy5(array) {
+  return array.some(number => number % 5 === 0)
+}
 
-// ? write a function that checks whether ALL of the numbers in the array are can be divided by 5. It should return true or false.
+// ? write a function that checks whether ALL of the numbers in the array are can be divided by 5. 
+// It should return true or false.
 // ? eg: divisibleBy10([10, 20, 30]) => true; divisibleBy10([10, 20, 99]) => false;
-function divisibleBy10(array) {}
+function divisibleBy10(array) {
+  return array.some(number => number % 10 === 0)
+}
 
 // ? write a function that returns the sum of all numerical values in an array. It should be able to handle number and string datatypes.
 // ? eg: sumOfArray([1, 2, 3]) => 6; sumOfArray([1, '2', '3']) => 6;
-function sumOfArray(array) {}
+function sumOfArray(array) {
+  
+}
 
 // ! please do not alter below ✋
 
