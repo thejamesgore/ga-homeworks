@@ -23,7 +23,7 @@ describe('secondLowestSecondHighest', () => {
   })
 })
 
-xdescribe('coins', () => {
+describe('coins', () => {
   test('should return the coins needed to make up the price supplied', () => {
     expect(fns.coins(1.50)).toEqual([100, 50])
   })

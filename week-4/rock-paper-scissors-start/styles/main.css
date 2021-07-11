@@ -1,0 +1,80 @@
+body {
+    display: flex;
+    justify-content: center;
+   
+}
+
+#mainbox {
+    background-color:rgba(112, 128, 144, 0.301);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    height: 500px;
+    margin: 3%;
+}
+
+#mainbox > h2 {
+    
+}
+
+#mainbox > div {
+    margin-top: 3%;
+}
+
+#mainbox > button {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3%;
+    background-color: paleturquoise;
+    border-color: red;
+    color: red;
+    padding: 3%;
+    width: 50%
+}
+
+#winner {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+
+#buttons {
+    display:flex;
+    justifty-content: space-around;
+}
+
+#buttons > button {
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+    margin: 2px 2px;
+    background-color: rgb(255, 255, 255);
+    border-color: red;
+    color: red;
+    width: 80px;
+    height: 40px;
+    align-items: center;
+}
+
+#winner {
+    display: flex;
+    height: 40px;
+    width: 250px;
+    background-color: red;
+    align-items: center;
+    color: white;
+}
+
+#p1 {
+    margin-top: 10%
+}
+
+#p1choice {
+    color: red;
+}
+
+#p2choice {
+    color: red;
+}

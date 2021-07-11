@@ -37,7 +37,8 @@ return [secLow,secHigh]
 // ? the function should use the smallest number of coins possible
 // ? eg: coins(1.99) => [100, 50, 20, 20, 5, 2, 2]
 function coins(price) {
-  
+  const coinsAll = [1, 2, 5, 10, 20, 50, 100]
+
 
 }
 
@@ -54,20 +55,19 @@ function mergeUnique(arr1, arr2) {
 // ? 0, 1, 1, 2, 3, 5, 8, 13, 21, 34 etc...
 // ? eg: fibonacci(4) => [0,1,1,2]; fibonacci(8) => [0, 1, 1, 2, 3, 5, 8, 13];
 function fibonacci(n) {
-let n1 = 0
-let n2 =1
-let nextNum = 0
-let counter = 0
+  let n1 = 0
+  let n2 =1
+  let nextNum = 0
+  let counter = 0
+  
+  while (counter <= n) {
+    counter++
+    return nextNum
+    n1 = n2
+    n2 = nextNum
+    nextTerm = n1 + n2
+    }
 
-while (counter <= n) {
-  counter++
-  return nextNum
-  n1 = n2
-  n2 = nextNum
-  nextTerm = n1 + n2
-  }
-
-}
 
 module.exports = {
   removeBlank,

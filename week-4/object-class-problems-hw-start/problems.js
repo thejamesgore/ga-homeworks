@@ -84,10 +84,10 @@ class Cart {
     this.contents.splice()
   } 
   empty() {
-    this.pull(contents)
+    this.contents = []
   }
   getTotal() {
-    return Math.sum(contents)
+    return this.contents.reduce((total + item) => total + item, 0)
   }
 }
 
@@ -103,16 +103,17 @@ getArea() - calculates the area of the shape
 getPerimeter() - calculates the total length of all sides of the shape
 */
 
+
 class Shape {
   constructor(width, height){
   this.width = width
   this.height = height
   }
   getArea() {
-    width * height
+    return this.width * this.height
   }
   getPerimeter() {
-    (width*2) + (height*2)
+    return (this.width*2) + (this.height*2)
   }
 }
 
