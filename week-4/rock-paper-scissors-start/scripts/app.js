@@ -73,6 +73,7 @@ function handleReset(click){ // Sweetness #3 got the reset button working
     console.log('Player has decided to rest the computer and player choice')
     p1Choice.textContent = ''
     p2Choice.textContent = ''
+    winnerText.textContent = 'Click Below To Start'
 }
 
 rockButton.addEventListener('click', handleChoiceClick)
