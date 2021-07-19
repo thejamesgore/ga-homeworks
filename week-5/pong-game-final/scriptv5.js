@@ -1,5 +1,5 @@
 // Remade my original game to have objects and functions for particular purposes rather than an endless sea of variables
-//
+////
 
 const canvas = document.querySelector('canvas');
 const context = canvas.getContext('2d');
