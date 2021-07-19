@@ -38,7 +38,6 @@ const ball = {
   x: canvas.width / 2,
   y: canvas.height / 2,
   radius: 7,
-  speed: 7,
   velocityX: 5,
   velocityY: 5,
   colour: 'red'
@@ -149,7 +148,7 @@ function updatePositions() {
   ball.y += ball.velocityY;
 
   // computerPaddle paddle movement
-  computerPaddle.x += ((ball.x - (computerPaddle.x + computerPaddle.width/2))) * 0.1;
+  computerPaddle.x += ((ball.x - (computerPaddle.x + computerPaddle.width/2))) * 0.085;
 
 playerPaddleHit()
 computerPaddleHit()
@@ -158,7 +157,7 @@ computerPaddleHit()
 // player paddle hit and deflection which works by checking to see if the ball is in the paddle
 function playerPaddleHit(){
   if ( ball.x > playerPaddle.x && ball.x < (playerPaddle.x + paddleWidth)){
-    if (ball.y + 5.2 > playerPaddle.y){
+    if (ball.y + ball.radius > playerPaddle.y){
       ball.velocityY = -ball.velocityY
       }
     }
@@ -166,13 +165,15 @@ function playerPaddleHit(){
   
   // computer paddle hit and deflection
   function computerPaddleHit(){
-  if ( ball.x > computerPaddle.x && ball.x < (computerPaddle.x + paddleWidth)){
-    if (ball.y -10 < computerPaddle.y){
-      console.log('please work jesus')
-      ball.velocityY = -ball.velocityY
+    if ( ball.x > computerPaddle.x && ball.x < (computerPaddle.x + paddleWidth)){
+      if (ball.y - ball.radius < computerPaddle.y + paddleHeight){
+        console.log('please work jesus')
+        ball.velocityY = -ball.velocityY
+      }
     }
-  }
-  }
+    }
+
+ 
 
 // This draws everything on to canvas
 function drawGame() {
@@ -180,8 +181,8 @@ function drawGame() {
   context.fillStyle = "#F0EAD6"; // Background colour
   context.fillRect(0, 0, canvas.width, canvas.height);
 
-  drawScore(canvas.width / 60, canvas.height / 1.8, playerPaddle.score);
-  drawScore(canvas.width / 60, canvas.height / 2.2, computerPaddle.score);
+  drawScore(canvas.width / 60, canvas.height / 1.8, computerPaddle.score);
+  drawScore(canvas.width / 60, canvas.height / 2.2, playerPaddle.score);
  
   drawPaddle(playerPaddle.x, playerPaddle.y, playerPaddle.width, playerPaddle.height, playerPaddle.colour);
   drawPaddle(computerPaddle.x, computerPaddle.y, computerPaddle.width, computerPaddle.height, computerPaddle.colour);
