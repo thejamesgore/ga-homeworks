@@ -170,13 +170,8 @@ function playerPaddleHit(){
         console.log('please work jesus')
         ball.velocityY = -ball.velocityY
       }
-<<<<<<< HEAD
     }
     }
-=======
-    }
-    }
->>>>>>> debc7eeb7e31e54cdaa8e1006790e2dafbd13fc0
 
  
 
