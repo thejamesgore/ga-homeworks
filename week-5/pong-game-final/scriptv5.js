@@ -201,7 +201,3 @@ setInterval(gameLoop, 1000 / 60);
 
 window.addEventListener('keydown', buttonPressed);
 window.addEventListener('keyup', buttonReleased);
-
-
-
-

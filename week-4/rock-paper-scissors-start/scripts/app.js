@@ -14,9 +14,9 @@ const winnerText = document.querySelector('#winner')
 
 
 
-function handleChoiceClick(click){
-    console.log('Player chose', click.target.textContent) // Sweetness #1 got it console logging the choice so now can take that data and give it to something else
-    const playerChoice = click.target.textContent
+function handleChoiceClick(event){
+    console.log('Player chose', event.target.textContent) // Sweetness #1 got it console logging the choice so now can take that data and give it to something else
+    const playerChoice = event.target.textContent
     p1Choice.textContent = playerChoice // Sweetness #2 got the players choice to display on screen
     const randomNumber = (Math.floor(Math.random() * (3 - 1 + 1)) + 1)
     console.log(randomNumber)
