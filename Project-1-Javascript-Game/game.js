@@ -9,7 +9,7 @@ const livesDisplay = document.getElementById("lives");
 let popupScore = document.getElementById("popup-score");
 const play = document.getElementById("play");
 const playAgain = document.getElementById("playagain");
-const congrats = document.getElementById("text")
+const congrats = document.getElementById("text");
 
 // control variables that switch on or off depending on if a key has been pressed or released
 let leftArrow = null;
@@ -21,6 +21,7 @@ let downArrow = null;
 let frame = 0;
 let score = 0;
 let endGame = false;
+let spawnRate = 1000;
 
 // arrays allow us to create multiple instances of the object on screen at a time by pushing objects into the array and allows us to remove objects from the screen by removing them from the array
 let missiles = [];
@@ -31,7 +32,9 @@ let bossMissiles = [];
 
 // Game audio elements
 const soundtrack = new Audio();
-soundtrack.src = "audio/Intro.mp3";
+soundtrack.src = "audio/soundtrack.mp3";
+const bossMusic =  new Audio();
+bossMusic.src =  "audio/Intro.mp3";
 const sound = new Audio();
 sound.src = "audio/missile.mp3";
 
@@ -222,7 +225,7 @@ const ship = new Ship();
 
 // Create an enemy class which will give basics of each enemy
 class Enemy {
-  constructor(x, y, vx, vy, type, score) {
+  constructor(x, y, vx, vy, type, score, radius, radians) {
     this.x = x;
     this.y = y;
     this.vx = vx;
@@ -232,6 +235,8 @@ class Enemy {
     this.health = 10;
     this.type = type;
     this.score = score;
+    this.radius = radius;
+    this.radians = radians;
   }
   draw() {
     context.fillStyle = "";
@@ -249,116 +254,137 @@ class Enemy {
 function getCurrentWave() {
   //each wave appears on screen with object properties based on current frame
 
-  if(frame > 500 && frame < 1000){
-      const wave1 ={
-          type: 1,
-          x: canvas.width,
-          y: canvas.height /2 - 25,
-          vx: -4,
-          vy: 0,
-      }
-      return wave1
-  }
-  if (frame > 1000 && frame < 1250){
-      const wave2 ={
-          type: 2,
-          x: canvas.width ,
-          y: (canvas.height /2) + (canvas.height /4),
-          vx: -10,
-          vy: -2,
-      }
-      return wave2
-  }
-      if (frame > 1250 && frame < 1500){
-      const wave3 ={
-          type: 3,
-          x: canvas.width ,
-          y: (canvas.height /2) - (canvas.height /4),
-          vx: -10,
-          vy: +2,
-      }
-      return wave3
-  }
-  if (frame > 1500 && frame < 1750){
-      const wave2 ={
-          type: 2,
-          x: canvas.width ,
-          y: (canvas.height /2) + (canvas.height /4),
-          vx: -10,
-          vy: -2,
-      }
-      return wave2
-  }
-  if(frame > 1750 && frame < 2000){
-      const wave1 ={
-          type: 1,
-          x: canvas.width,
-          y: ship.y,
-          vx: -10,
-          vy: 0,
-      }
-      return wave1
-  }
-  if (frame > 2000 && frame < 2500){
-      const wave4 ={
-          type: 4,
-          x: canvas.width ,
-          y: canvas.height /2 - 25,
-          vx: -6,
-          vy: 0,
-      }
-      return wave4
-  }
-  if (frame > 500 && frame < 3500){
-      const wave5 ={
-          type: 5,
-          x: canvas.width ,
-          y: canvas.height /2 - 25,
-          vx: -6,
-          vy: 0,
-      }
-      return wave5
-  }
-  if (frame > 3500 && frame < 4500){
-      const wave6 ={
-          type: 6,
-          x: canvas.width ,
-          y: (Math.random() * ((canvas.height-50) - 50)) + 50,
-          vx: -18,
-          vy: 0,
-      }
-      return wave6
-  }
-  if (frame > 4500 && frame < 5000){
-      const wave7 ={
-          type: 7,
-          x: ship.x,
-          y: 0,
-          vx: 0,
-          vy: +7,
-      }
-      return wave7
-  }
-  if (frame > 5000 && frame < 5500){
-      const wave8 ={
-          type: 8,
-          x: ship.x,
-          y: canvas.height -25,
-          vx: 0,
-          vy: -11,
-      }
-      return wave8
-  }
-  if (frame > 5500 && frame < 6000){
-      const wave9 ={
-          type: 9,
-          x: 0,
-          y: ship.y,
-          vx: +8,
-          vy: 0,
-      }
-      return wave9
-  }
+  // if (frame > 450 && frame < 1000) {
+  //   const wave1 = {
+  //     type: 1,
+  //     x: canvas.width,
+  //     y: canvas.height / 2 - 25,
+  //     vx: -4,
+  //     vy: 0,
+  //     radians: 0,
+  //   };
+  //   return wave1;
+  // }
+  // if (frame > 1000 && frame < 1150) {
+  //   const wave2 = {
+  //     type: 2,
+  //     x: canvas.width,
+  //     y: canvas.height / 2 + canvas.height / 4,
+  //     vx: -10,
+  //     vy: -2,
+  //   };
+  //   return wave2;
+  // }
+  // if (frame > 1150 && frame < 1300) {
+  //   const wave3 = {
+  //     type: 3,
+  //     x: canvas.width,
+  //     y: canvas.height / 2 - canvas.height / 4,
+  //     vx: -10,
+  //     vy: +2,
+  //   };
+  //   return wave3;
+  // }
+  // if (frame > 1300 && frame < 1400) {
+  //   const wave2 = {
+  //     type: 2,
+  //     x: canvas.width,
+  //     y: canvas.height / 2 + canvas.height / 4,
+  //     vx: -10,
+  //     vy: -2,
+  //   };
+  //   return wave2;
+  // }
+  // if (frame > 1400 && frame < 1500) {
+  //   const wave3 = {
+  //     type: 3,
+  //     x: canvas.width,
+  //     y: canvas.height / 2 - canvas.height / 4,
+  //     vx: -10,
+  //     vy: +2,
+  //   };
+  //   return wave3;
+  // }
+  // if (frame > 1500 && frame < 1750) {
+  //   const wave2 = {
+  //     type: 2,
+  //     x: canvas.width,
+  //     y: canvas.height / 2 + canvas.height / 4,
+  //     vx: -10,
+  //     vy: -2,
+  //   };
+  //   return wave2;
+  // }
+  // if (frame > 1750 && frame < 2000) {
+  //   const wave1 = {
+  //     type: 1,
+  //     x: canvas.width,
+  //     y: ship.y,
+  //     vx: -10,
+  //     vy: 0,
+  //   };
+  //   return wave1;
+  // }
+  // if (frame > 2000 && frame < 2500) {
+  //   const wave4 = {
+  //     type: 4,
+  //     x: canvas.width,
+  //     y: canvas.height / 2 - 25,
+  //     vx: -6,
+  //     vy: 0,
+  //   };
+  //   return wave4;
+  // }
+  // if (frame > 500 && frame < 3500) {
+  //   const wave5 = {
+  //     type: 5,
+  //     x: canvas.width,
+  //     y: canvas.height / 2 - 25,
+  //     vx: -6,
+  //     vy: 0,
+  //   };
+  //   return wave5;
+  // }
+  // if (frame > 3500 && frame < 4500) {
+  //   const wave6 = {
+  //     type: 6,
+  //     x: canvas.width,
+  //     y: Math.random() * (canvas.height - 50 - 50) + 50,
+  //     vx: -18,
+  //     vy: 0,
+  //   };
+  //   return wave6;
+  // }
+  // if (frame > 4500 && frame < 5000) {
+  //   const wave7 = {
+  //     type: 7,
+  //     x: ship.x,
+  //     y: 0,
+  //     vx: 0,
+  //     vy: +7,
+  //   };
+  //   return wave7;
+  // }
+  // if (frame > 5000 && frame < 5500) {
+  //   const wave8 = {
+  //     type: 8,
+  //     x: ship.x,
+  //     y: canvas.height - 25,
+  //     vx: 0,
+  //     vy: -9,
+  //   };
+  //   return wave8;
+  // }
+  // if (frame > 5500 && frame < 6000) {
+  //   const wave9 = {
+  //     type: 9,
+  //     x: 0,
+  //     y: ship.y,
+  //     vx: +6,
+  //     vy: 0,
+  //   };
+  //   return wave9;
+  // }
   return null;
 }
 function createEnemy() {
@@ -377,7 +403,7 @@ function createEnemy() {
   enemies.push(new Enemy(x, y, vx, vy, type));
 }
 function spawnEnemies() {
-  setInterval(createEnemy, 1000);
+  setInterval(createEnemy, spawnRate);
 }
 
 class Missile {
@@ -533,8 +559,10 @@ function animate() {
   // End game section
   //
 
-  if (frame > 6500) {
+  if (frame > 500) {
     // console.log(bossPos)
+    soundtrack.pause()
+    bossMusic.play()
     if (bossPos > canvas.width - bossWidth) {
       bossPos = bossPos - 0.5;
     }
@@ -618,13 +646,12 @@ function animate() {
           boss.vy += 4.5;
           context.drawImage(explosion2Img, missile.x, missile.y);
         }
-
       }
     });
-    console.log(boss.y)
-    if(boss.y > canvas.height + bossShipHeight){
-        congrats.innerText = 'You Won!'
-        document.getElementById("hidden").classList.remove("hidden");
+    console.log(boss.y);
+    if (boss.y > canvas.height + bossShipHeight) {
+      congrats.innerText = "You Won!";
+      document.getElementById("hidden").classList.remove("hidden");
     }
   });
 
@@ -676,6 +703,15 @@ function animate() {
         enemy.width,
         enemy.height
       );
+      let radians = 0
+      setInterval(function () {
+        // if (counter == 0.5) inc = -1;
+        // if (counter == -1.5) inc = +1;
+        console.log(radians)
+        radians += 0.05
+        enemy.y = (enemy.y +  Math.cos(radians) /Math.PI)
+        enemy.vy = -0.5
+      }, 10);
     }
     if (enemy.type === 2) {
       context.drawImage(
@@ -737,14 +773,20 @@ function animate() {
         enemy.width,
         enemy.height
       );
-      let counter = 0;
-      let inc = +1;
+
+      let radians = 0
       setInterval(function () {
-        if (counter == 0.5) inc = -1;
-        if (counter == -1.5) inc = +1;
-        counter += inc;
-        enemy.vy = 16 * Math.sin(counter);
+        // if (counter == 0.5) inc = -1;
+        // if (counter == -1.5) inc = +1;
+        console.log(radians)
+        radians += 0.05
+        enemy.y = (enemy.y +  Math.cos(radians) /Math.PI)
+        enemy.vy = -0.5
+        enemy.x = enemy.x + Math.sin(radians)
+        enemy.vx = -20
+        
       }, 10);
+
     }
 
     if (enemy.type === 6) {
