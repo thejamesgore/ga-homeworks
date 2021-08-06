@@ -254,137 +254,137 @@ class Enemy {
 function getCurrentWave() {
   //each wave appears on screen with object properties based on current frame
 
-  // if (frame > 450 && frame < 1000) {
-  //   const wave1 = {
-  //     type: 1,
-  //     x: canvas.width,
-  //     y: canvas.height / 2 - 25,
-  //     vx: -4,
-  //     vy: 0,
-  //     radians: 0,
-  //   };
-  //   return wave1;
-  // }
-  // if (frame > 1000 && frame < 1150) {
-  //   const wave2 = {
-  //     type: 2,
-  //     x: canvas.width,
-  //     y: canvas.height / 2 + canvas.height / 4,
-  //     vx: -10,
-  //     vy: -2,
-  //   };
-  //   return wave2;
-  // }
-  // if (frame > 1150 && frame < 1300) {
-  //   const wave3 = {
-  //     type: 3,
-  //     x: canvas.width,
-  //     y: canvas.height / 2 - canvas.height / 4,
-  //     vx: -10,
-  //     vy: +2,
-  //   };
-  //   return wave3;
-  // }
-  // if (frame > 1300 && frame < 1400) {
-  //   const wave2 = {
-  //     type: 2,
-  //     x: canvas.width,
-  //     y: canvas.height / 2 + canvas.height / 4,
-  //     vx: -10,
-  //     vy: -2,
-  //   };
-  //   return wave2;
-  // }
-  // if (frame > 1400 && frame < 1500) {
-  //   const wave3 = {
-  //     type: 3,
-  //     x: canvas.width,
-  //     y: canvas.height / 2 - canvas.height / 4,
-  //     vx: -10,
-  //     vy: +2,
-  //   };
-  //   return wave3;
-  // }
-  // if (frame > 1500 && frame < 1750) {
-  //   const wave2 = {
-  //     type: 2,
-  //     x: canvas.width,
-  //     y: canvas.height / 2 + canvas.height / 4,
-  //     vx: -10,
-  //     vy: -2,
-  //   };
-  //   return wave2;
-  // }
-  // if (frame > 1750 && frame < 2000) {
-  //   const wave1 = {
-  //     type: 1,
-  //     x: canvas.width,
-  //     y: ship.y,
-  //     vx: -10,
-  //     vy: 0,
-  //   };
-  //   return wave1;
-  // }
-  // if (frame > 2000 && frame < 2500) {
-  //   const wave4 = {
-  //     type: 4,
-  //     x: canvas.width,
-  //     y: canvas.height / 2 - 25,
-  //     vx: -6,
-  //     vy: 0,
-  //   };
-  //   return wave4;
-  // }
-  // if (frame > 500 && frame < 3500) {
-  //   const wave5 = {
-  //     type: 5,
-  //     x: canvas.width,
-  //     y: canvas.height / 2 - 25,
-  //     vx: -6,
-  //     vy: 0,
-  //   };
-  //   return wave5;
-  // }
-  // if (frame > 3500 && frame < 4500) {
-  //   const wave6 = {
-  //     type: 6,
-  //     x: canvas.width,
-  //     y: Math.random() * (canvas.height - 50 - 50) + 50,
-  //     vx: -18,
-  //     vy: 0,
-  //   };
-  //   return wave6;
-  // }
-  // if (frame > 4500 && frame < 5000) {
-  //   const wave7 = {
-  //     type: 7,
-  //     x: ship.x,
-  //     y: 0,
-  //     vx: 0,
-  //     vy: +7,
-  //   };
-  //   return wave7;
-  // }
-  // if (frame > 5000 && frame < 5500) {
-  //   const wave8 = {
-  //     type: 8,
-  //     x: ship.x,
-  //     y: canvas.height - 25,
-  //     vx: 0,
-  //     vy: -9,
-  //   };
-  //   return wave8;
-  // }
-  // if (frame > 5500 && frame < 6000) {
-  //   const wave9 = {
-  //     type: 9,
-  //     x: 0,
-  //     y: ship.y,
-  //     vx: +6,
-  //     vy: 0,
-  //   };
-  //   return wave9;
-  // }
+  if (frame > 450 && frame < 1000) {
+    const wave1 = {
+      type: 1,
+      x: canvas.width,
+      y: canvas.height / 2 - 25,
+      vx: -4,
+      vy: 0,
+      radians: 0,
+    };
+    return wave1;
+  }
+  if (frame > 1000 && frame < 1150) {
+    const wave2 = {
+      type: 2,
+      x: canvas.width,
+      y: canvas.height / 2 + canvas.height / 4,
+      vx: -10,
+      vy: -2,
+    };
+    return wave2;
+  }
+  if (frame > 1150 && frame < 1300) {
+    const wave3 = {
+      type: 3,
+      x: canvas.width,
+      y: canvas.height / 2 - canvas.height / 4,
+      vx: -10,
+      vy: +2,
+    };
+    return wave3;
+  }
+  if (frame > 1300 && frame < 1400) {
+    const wave2 = {
+      type: 2,
+      x: canvas.width,
+      y: canvas.height / 2 + canvas.height / 4,
+      vx: -10,
+      vy: -2,
+    };
+    return wave2;
+  }
+  if (frame > 1400 && frame < 1500) {
+    const wave3 = {
+      type: 3,
+      x: canvas.width,
+      y: canvas.height / 2 - canvas.height / 4,
+      vx: -10,
+      vy: +2,
+    };
+    return wave3;
+  }
+  if (frame > 1500 && frame < 1750) {
+    const wave2 = {
+      type: 2,
+      x: canvas.width,
+      y: canvas.height / 2 + canvas.height / 4,
+      vx: -10,
+      vy: -2,
+    };
+    return wave2;
+  }
+  if (frame > 1750 && frame < 2000) {
+    const wave1 = {
+      type: 1,
+      x: canvas.width,
+      y: ship.y,
+      vx: -10,
+      vy: 0,
+    };
+    return wave1;
+  }
+  if (frame > 2000 && frame < 2500) {
+    const wave4 = {
+      type: 4,
+      x: canvas.width,
+      y: canvas.height / 2 - 25,
+      vx: -6,
+      vy: 0,
+    };
+    return wave4;
+  }
+  if (frame > 500 && frame < 3500) {
+    const wave5 = {
+      type: 5,
+      x: canvas.width,
+      y: canvas.height / 2 - 25,
+      vx: -6,
+      vy: 0,
+    };
+    return wave5;
+  }
+  if (frame > 3500 && frame < 4500) {
+    const wave6 = {
+      type: 6,
+      x: canvas.width,
+      y: Math.random() * (canvas.height - 50 - 50) + 50,
+      vx: -18,
+      vy: 0,
+    };
+    return wave6;
+  }
+  if (frame > 4500 && frame < 5000) {
+    const wave7 = {
+      type: 7,
+      x: ship.x,
+      y: 0,
+      vx: 0,
+      vy: +7,
+    };
+    return wave7;
+  }
+  if (frame > 5000 && frame < 5500) {
+    const wave8 = {
+      type: 8,
+      x: ship.x,
+      y: canvas.height - 25,
+      vx: 0,
+      vy: -9,
+    };
+    return wave8;
+  }
+  if (frame > 5500 && frame < 6000) {
+    const wave9 = {
+      type: 9,
+      x: 0,
+      y: ship.y,
+      vx: +6,
+      vy: 0,
+    };
+    return wave9;
+  }
   return null;
 }
 function createEnemy() {
@@ -559,7 +559,7 @@ function animate() {
   // End game section
   //
 
-  if (frame > 500) {
+  if (frame > 6500) {
     // console.log(bossPos)
     soundtrack.pause()
     bossMusic.play()
