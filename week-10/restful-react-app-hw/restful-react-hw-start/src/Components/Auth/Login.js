@@ -1,7 +1,7 @@
 /* eslint-disable indent */
 import React from 'react'
-import { loginUser } from '../Api'
-import { setToken } from '../Auth'
+import { loginUser } from '../../lib/Api'
+import { setToken } from '../../lib/Auth'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 
 const Login = () => {

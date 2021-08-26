@@ -1,5 +1,5 @@
 import React from 'react'
-import { getAllWines } from '../Api'
+import { getAllWines } from '../../lib/Api'
 import WineCard from './WineCard2'
 
 const WineIndex = () => {

@@ -1,6 +1,6 @@
 /* eslint-disable indent */
 import React from 'react'
-import { registerUser } from '../Api'
+import { registerUser } from '../../lib/Api'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 
 

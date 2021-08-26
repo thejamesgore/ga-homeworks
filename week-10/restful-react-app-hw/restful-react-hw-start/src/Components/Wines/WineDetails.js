@@ -1,7 +1,7 @@
 /* eslint-disable indent */
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { getMyWine } from '../Api'
+import { getMyWine } from '../../lib/Api'
 
 const WineDetails = () => {
     const { id } = useParams()
