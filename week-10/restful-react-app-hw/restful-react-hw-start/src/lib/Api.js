@@ -12,7 +12,7 @@ export const getMyWine = (id) => {
     return axios.get(`${apiUrl}/wines/${id}`)
 }
 
-// Create / Edit Methods
+// Create & Edit Methods
 
 export const createWine = (formData) => {
     const requestConfig = {
@@ -20,6 +20,22 @@ export const createWine = (formData) => {
     }
   
     return axios.post(`${apiUrl}/wines`, formData, requestConfig)
+  }
+
+export const editWine = (id, formData) => {
+    const requestConfig = {
+      headers: { Authorization: `Bearer ${getToken()}` }
+    }
+  
+    return axios.put(`${apiUrl}/wines/${id}`, formData, requestConfig)
+  }
+
+  export const deleteCheese = (id) => {
+    const requestConfig = {
+      headers: { Authorization: `Bearer ${getToken()}` }
+    }
+  
+    return axios.delete(`${apiUrl}/wines/${id}`, requestConfig)
   }
 
 // Auth methods
