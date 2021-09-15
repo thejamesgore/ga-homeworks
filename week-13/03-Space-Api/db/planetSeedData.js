@@ -7,6 +7,7 @@ export const planetSeedData = [
         lightYearsDistanceFromEarth: 0.00001512,
         orbitingObjects: "None",
         inHabitableZone: true,
+        funFacts: [],
     },
     {
         name: 'Proxima Centauri B',
@@ -16,5 +17,6 @@ export const planetSeedData = [
         lightYearsDistanceFromEarth: 4.2,
         orbitingObjects: "None",
         inHabitableZone: true,
+        funFacts: [],
     },
 ]
