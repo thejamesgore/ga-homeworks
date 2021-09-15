@@ -8,7 +8,7 @@ import { connectDb } from './db/helpers.js'
 const app = express()
 app.use(express.json())
 
-app.use('api', router)
+app.use('/api', router)
 
 async function startServer() {
     try {
