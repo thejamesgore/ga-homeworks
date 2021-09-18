@@ -1,25 +1,32 @@
-import express from "express";
-import planetsController from "../controllers/planetsController.js";
-import commentsController from "../controllers/commentsController.js";
+import express from 'express'
+import planetsController from '../controllers/planetsController.js'
+import commentsController from '../controllers/commentsController.js'
+import userController from '../controllers/userController.js'
+import { secureRoute } from '../middleware/secureRoute.js'
 
-const router = express.Router();
+const router = express.Router()
 
 router
-  .route("/planets")
+  .route('/planets')
   .get(planetsController.getAllPlanets)
-  .post(planetsController.createPlanet);
+  .post(secureRoute, planetsController.createPlanet)
 
 router
-  .route("/planets/:id")
+  .route('/planets/:id')
   .get(planetsController.getPlanet)
-  .delete(planetsController.deletePlanet)
-  .put(planetsController.updatePlanet);
-
-router.route("planets/:id/comments").post(commentsController.createComment);
+  .delete(secureRoute, planetsController.deletePlanet)
+  .put(secureRoute, planetsController.updatePlanet)
 
 router
-  .route("/planets/:id/comments/:commentId")
-  .delete(commentsController.deleteComment)
-  .put(commentsController.updateComment);
+  .route('planets/:id/comments')
+  .post(secureRoute, commentsController.createComment)
 
-export default router; 
+router
+  .route('/planets/:id/comments/:commentId')
+  .delete(secureRoute, commentsController.deleteComment)
+  .put(secureRoute, commentsController.updateComment)
+
+router.route('/register').post(userController.registerUser)
+router.route('/login').post(userController.loginUser)
+
+export default router
