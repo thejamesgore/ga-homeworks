@@ -15,9 +15,9 @@ async function cleanupFacts() {
 ​
     
     for (let planet of planets) {
-      planet.comments.forEach((comment) => {
+      planet.facts.forEach((fact) => {
         
-        comment.set({
+        fact.set({
           createdBy: user._id,
         })
       })
