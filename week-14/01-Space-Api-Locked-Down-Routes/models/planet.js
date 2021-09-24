@@ -15,24 +15,21 @@ const funFanctsSchema = new mongoose.Schema(
   }
 )
 
-const planetSchema = new mongoose.Schema(
-  {
-    name: String,
-    system: [{ type: mongoose.Types.ObjectId, ref: 'Actor' }],
-    stars: String,
-    constellation: String,
-    lightYearsDistanceFromEarth: Number,
-    orbitingObjects: String,
-    inHabitableZone: Boolean,
-    funFacts: [funFanctsSchema],
-     createdBy: {
+const planetSchema = new mongoose.Schema({
+  name: String,
+  system: [{ type: mongoose.Types.ObjectId, ref: 'Actor' }],
+  stars: String,
+  constellation: String,
+  lightYearsDistanceFromEarth: Number,
+  orbitingObjects: String,
+  inHabitableZone: Boolean,
+  funFacts: [funFanctsSchema],
+  createdBy: {
     type: mongoose.Schema.ObjectId,
     ref: 'User',
     required: true,
-
   },
-  { versionKey: false }
-)
+})
 
 planetSchema.plugin(mongooseUniqueValidator)
 

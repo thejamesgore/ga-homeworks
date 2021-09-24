@@ -1,6 +1,6 @@
 import express from 'express'
 import planetsController from '../controllers/planetsController.js'
-import commentsController from '../controllers/commentsController.js'
+import factsController from '../controllers/factsController.js'
 import userController from '../controllers/userController.js'
 import { secureRoute } from '../middleware/secureRoute.js'
 
@@ -17,14 +17,12 @@ router
   .delete(secureRoute, planetsController.deletePlanet)
   .put(secureRoute, planetsController.updatePlanet)
 
-router
-  .route('planets/:id/comments')
-  .post(secureRoute, commentsController.createComment)
+router.route('planets/:id/facts').post(secureRoute, factsController.createfact)
 
 router
-  .route('/planets/:id/comments/:commentId')
-  .delete(secureRoute, commentsController.deleteComment)
-  .put(secureRoute, commentsController.updateComment)
+  .route('/planets/:id/facts/:factId')
+  .delete(secureRoute, factsController.deletefact)
+  .put(secureRoute, factsController.updatefact)
 
 router.route('/register').post(userController.registerUser)
 router.route('/login').post(userController.loginUser)
